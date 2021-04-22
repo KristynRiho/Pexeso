@@ -25,8 +25,10 @@ document.querySelector('.btn-new-game').addEventListener('click', () => {
   console.log(shuffledImages);
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].className = `cell img-${shuffledImages[i]} no-active`;
+    buttons[i].disabled = false;
   }
   counterOfClicks = 0;
+  pair = [];
 });
 
 //co se má stát, když nastane nějaká událost (e)
@@ -38,7 +40,6 @@ const kliknuto = (e) => {
   pair.push(numberOfImg);
 
   if (pair[0] === pair[1]) {
-    console.log('shoda');
     const matchingPair = document.querySelectorAll(`.img-${pair[0]}`);
     for (let j = 0; j < matchingPair.length; j++) {
       matchingPair[j].disabled = true;
